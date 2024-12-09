@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Prediction App</title>
+    <!-- Add CSS or scripts here if needed -->
+    <style>
+        /* Basic page styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #28a745;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Air Quality Prediction</h1>
+        <form action="/predict" method="post">
+            <label for="temperature">Temperature:</label>
+            <input type="number" step="0.1" name="temperature" id="temperature" required>
+
+            <label for="Humidity">Humidity:</label>
+            <input type="number" step="0.1" name="Humidity" id="Humidity" required>
+
+            <label for="PM2_5">PM2.5:</label>
+            <input type="number" step="0.1" name="PM2.5" id="PM2_5" required>
+
+            <label for="PM10">PM10:</label>
+            <input type="number" step="0.1" name="PM10" id="PM10" required>
+
+            <label for="NO2">NO2:</label>
+            <input type="number" step="0.1" name="NO2" id="NO2" required>
+
+            <label for="SO2">SO2:</label>
+            <input type="number" step="0.1" name="SO2" id="SO2" required>
+
+            <label for="CO">CO:</label>
+            <input type="number" step="0.01" name="CO" id="CO" required>
+
+            <label for="Proximity_to_Industrial_Areas">Proximity to Industrial Areas:</label>
+            <input type="number" step="0.01" name="Proximity_to_Industrial_Areas" id="Proximity_to_Industrial_Areas" required>
+
+            <label for="Population_Density">Population Density:</label>
+            <input type="number" step="0.01" name="Population_Density" id="Population_Density" required>
+
+            <input type="submit" value="Predict">
+        </form>
+        
+        {% if prediction_text %}
+        <div class="result">{{ prediction_text }}</div>
+        {% endif %}
+    </div>
+</body>
+</html>

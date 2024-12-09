@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> App</title>
+    <h1> Air Quality Prediction</h1>
+    <body>
+        <div class="form-container">
+        <!-- Content here -->      
+                <form action="/predict" method="post">
+                    <label for="temperature">Temperature:</label>
+                    <input type="number" step="0.1" name="temperature" required>
+                    
+                    <label for="Humidity">Humidity:</label>
+                    <input type="number" step="0.1" name="Humidity" required>
+                    
+                    <label for="PM2.5">PM2.5:</label>
+                    <input type="number" step="0.1" name="PM2.5" required>
+                    
+                    <label for="PM10">PM10:</label>
+                    <input type="number" step="0.1" name="PM10" required>
+                    
+                    <label for="NO2">NO2:</label>
+                    <input type="number" step="0.1" name="NO2" required>
+
+                    <label for="SO2">SO2:</label>
+                    <input type="number" step="0.1" name="SO2" required>
+
+                    <label for="CO">CO:</label>
+                    <input type="number" step="0.01" name="CO" required>
+
+                    <label for="Proximity_to_Industrial_Areas">Proximity_to_Industrial_Areas:</label>
+                    <input type="number"step="0.01" name="Proximity_to_Industrial_Areas" required>
+
+                    <label for="Population_Density">Population_Density:</label>
+                    <input type="number" step="0.01" name="Population_Density" required>
+
+                    </label>
+                    <input type="submit" value="Predict">
+                      
+                </form>
+                {% if prediction_text %}
+                <div class="result">{{ prediction_text }}</div>
+                {% endif %}    
+        </div>
+    </body>
+</head>
+
+
+
+</html>
